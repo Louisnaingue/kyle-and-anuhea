@@ -622,7 +622,7 @@ h1{
 
     .registry-buttons-container {
         position: absolute;
-        top: 51%;                 /* Shifts the container up toward the first QR code */
+        top: 50%;                 /* Shifts the container up toward the first QR code */
         left: 50%;
         transform: translateX(-50%);
         display: flex;
