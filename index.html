@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kyle & Anuhea Wedding</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#ours" >OUR STORY</a></li>
+        <li><a href="#schedule">SCHEDULE</a></li>
+        <li><a href="#">DETAILS</a></li>
+        <li><a href="#registry">REGISTRY</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="content">
+
+        <img class="logo" src="images/1.png" alt="">
+        <br><br>
+
+        <h1>KYLE &amp; ANUHEA</h1>
+        <br>
+
+        <div class="date">
+            <br><br>
+        </div>
+    
+          
+
+        <a href="https://form.jotform.com/261602364579058" class="rsvp-btn">
+            RSVP
+        </a>
+    </div>
+    <div class="countdown-overlay">
+
+        <div class="countdown-box">
+            <div>
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
+    
+            <div>
+                <span id="hours">00</span>
+                <p>Hours</p>
+            </div>
+    
+            <div>
+                <span id="minutes">00</span>
+                <p>Minutes</p>
+            </div>
+    
+            <div>
+                <span id="seconds">00</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+    
+    </div>
+</section>
+<section class="video-section">
+    <video id="scrollVideo" autoplay loop playsinline class="bg-video">
+        <source class="vid" src="video/KAI & ANU.mov" type="video/mp4">
+    </video>
+</section>
+<img class="image" src="images/5.png" alt="">
+<img class="image1" src="images/6.png" alt="">
+<section id="ours" >
+    <img  class="image" src="images/7.png" alt="">
+    <img  class="image1" src="images/8.png" alt="">
+</section>
+<section id="schedule" class="schedule-section">
+    <img  class="image" src="images/9.png" alt="">
+    <img  class="image1" src="images/11.png" alt="">
+         <!-- TOP -->
+    <a href="https://maps.app.goo.gl/MkExVmvKBgEYzP6x8" target="_blank" class="zone top"></a>
+
+    <!-- MIDDLE -->
+    <a href="https://maps.app.goo.gl/NPkZeQ17Yw5wNknF7" target="_blank" class="zone middle"></a>
+
+    <!-- BOTTOM -->
+    <a href="https://maps.app.goo.gl/r9CPmxApgErniHW19" target="_blank" class="zone bottom"></a>
+
+</section>
+<section id="registry" class="registry-section">
+    <img class="image" src="images/14.png" alt="">
+    <img class="image1" src="images/13.png" alt="Registry Background">
+    
+    <div class="registry-buttons-container">
+        <a href="https://www.amazon.com/wedding/guest-view/2WN380I387561" class="r-btn">
+            AMAZON
+        </a>
+        <a href="https://venmo.com/u/kylejohn16" class="r-btn">
+           VENMO
+        </a>
+    </div>
+</section>
+<script>
+    const video = document.getElementById("scrollVideo");
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    observer.observe(video);
+</script>
+<script>
+    const weddingDate = new Date("August 14, 2026 00:00:00").getTime();
+    
+    const timer = setInterval(function() {
+    
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+    
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+    
+        if (distance < 0) {
+            clearInterval(timer);
+            document.querySelector(".countdown").innerHTML = "IT'S WEDDING DAY 💍";
+        }
+    
+    }, 1000);
+    </script>
+
+</html>
