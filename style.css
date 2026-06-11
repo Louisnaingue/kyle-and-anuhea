@@ -317,7 +317,7 @@ h1{
     transform: translateX(-50%);
     
     display: flex;
-    gap: 600px;             /* Space between Amazon and Venmo buttons */
+    gap: 500px;             /* Space between Amazon and Venmo buttons */
     z-index: 10;
 }
 /* RSVP / REGISTRY BUTTONS */
