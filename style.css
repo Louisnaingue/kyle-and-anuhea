@@ -407,10 +407,6 @@ h1{
     pointer-events: auto;
 }
 
-/* hidden at start */
-.hidden {
-    display: none;
-}
 
 /* RESPONSIVE */
 @media(max-width:768px){
