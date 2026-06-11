@@ -366,7 +366,51 @@ h1{
     box-shadow: inset 0 1px 12px rgba(255, 255, 255, 0.1),
                 0 8px 24px rgba(0, 0, 0, 0.25);
 }
+.video-section {
+    position: relative;
+}
 
+.video-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+
+    color: white;
+    font-size: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    z-index: 10;
+
+    transition: 0.3s ease;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* show button */
+.video-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* hidden at start */
+.hidden {
+    display: none;
+}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -600,8 +644,33 @@ h1{
         gap: 210px;               /* This pushes Venmo down precisely under the second QR code */
         z-index: 10;
     }
- 
-
+    .video-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        width: 50px;
+        height: 50px;
     
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    
+        background: rgba(255, 255, 255, 0.05); /* transparent glass */
+        backdrop-filter: blur(0.05px);
+    
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 24px;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        cursor: pointer;
+    
+        transition: 0.3s ease;
+    }
+    
+
  
 }

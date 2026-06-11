@@ -65,9 +65,11 @@
     </div>
 </section>
 <section class="video-section">
-    <video id="scrollVideo" autoplay loop playsinline class="bg-video">
-        <source class="vid" src="video/Trailer.mp4" type="video/mp4">
+    <video id="scrollVideo" autoplay loop playsinline muted class="bg-video">
+        <source src="video/Trailer.mp4" type="video/mp4">
     </video>
+
+    <button id="videoBtn" class="video-btn hidden">▶</button>
 </section>
 <img class="image" src="images/5.png" alt="">
 <img class="image1" src="images/6.png" alt="">
@@ -103,20 +105,62 @@
 </section>
 <script>
     const video = document.getElementById("scrollVideo");
+    const btn = document.getElementById("videoBtn");
+    const videoSection = document.querySelector(".video-section");
     
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                video.play();
-            } else {
-                video.pause();
-            }
-        });
-    }, {
-        threshold: 0.5
+    let soundEnabled = false;
+    
+    // keep autoplay silent (mobile safe)
+    video.muted = true;
+    video.play().catch(() => {});
+    
+    // 👇 SHOW BUTTON EVERY TIME USER TOUCHES VIDEO AREA
+    function showButton() {
+        btn.classList.add("show");
+    }
+    
+    // reset trigger so it works EVERY time
+    function enableTouchReveal() {
+        videoSection.addEventListener("touchstart", showButton, { once: true });
+        videoSection.addEventListener("click", showButton, { once: true });
+    }
+    
+    // start first time
+    enableTouchReveal();
+    
+    // 👇 BUTTON ACTION
+    btn.addEventListener("click", async () => {
+        if (!soundEnabled) {
+            video.muted = false;
+            video.volume = 1;
+    
+            try {
+                await video.play();
+            } catch (e) {}
+    
+            btn.textContent = "❚❚";
+            soundEnabled = true;
+    
+            // hide button after activation
+            setTimeout(() => {
+                btn.classList.remove("show");
+    
+                // 🔥 re-enable touch again after hiding
+                enableTouchReveal();
+    
+            }, 600);
+    
+        } else {
+            video.pause();
+            btn.textContent = "▶";
+            soundEnabled = false;
+    
+            btn.classList.add("show");
+    
+            // re-enable touch again
+            enableTouchReveal();
+        }
     });
-    
-    observer.observe(video);
 </script>
 <script>
     const weddingDate = new Date("August 14, 2026 00:00:00").getTime();
@@ -142,6 +186,5 @@
         }
     
     }, 1000);
-    </script>
-
+</script>
 </html>
