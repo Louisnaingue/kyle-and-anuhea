@@ -317,7 +317,7 @@ h1{
     transform: translateX(-50%);
     
     display: flex;
-    gap: 500px;             /* Space between Amazon and Venmo buttons */
+    gap: 420px;             /* Space between Amazon and Venmo buttons */
     z-index: 10;
 }
 /* RSVP / REGISTRY BUTTONS */
@@ -592,13 +592,13 @@ h1{
     .registry-buttons-container {
         position: absolute;
         top: 58%;                 /* Shifts the container up toward the first QR code */
-        left: 50%;
+        left: 49%;
         transform: translateX(-50%);
         
         display: flex;
         flex-direction: column;   /* Stacks Amazon vertically on top of Venmo */
         align-items: center;
-        gap: 250px;               /* This pushes Venmo down precisely under the second QR code */
+        gap: 210px;               /* This pushes Venmo down precisely under the second QR code */
         z-index: 10;
     }
  
