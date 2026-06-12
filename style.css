@@ -441,6 +441,7 @@ h1{
 
     .rsvp-btn{
         padding:14px 40px;
+        margin-top: 70px;
         font-size:1.1rem;
     }
     nav{
@@ -601,7 +602,7 @@ h1{
         padding: 5px 20px;  
         text-decoration: none;
         color: var(--beige);
-        font-size: .8rem;     
+        font-size: .8rem;    
         border-radius: 999px;
         
         /* Subtle transparent border using your color tint */
@@ -665,6 +666,7 @@ h1{
         opacity: 1;
         pointer-events: auto;
     }
+    
     
 
  
